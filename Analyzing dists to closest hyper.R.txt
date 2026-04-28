@@ -1,0 +1,19 @@
+setwd("DistToClosestHyper")
+hyper_table = read.table(file="HyperGeneraList.1.Seedplants.tsv",header=TRUE)
+
+data = read.table(file = "DistToClosestHyper.any_metal.1.genera.tsv")
+colnames(data) = c("metal","plant","closest_hyper","dist")
+sub = subset(hyper_table,hyper_table$element=="any_metal")
+sp_vect = sub[1,2]
+hypers = unlist(strsplit(sp_vect, ","))
+data$is_hyper = ifelse(data$plant%in%hypers,"hypers","nonhypers")
+
+library(ggplot2)
+viol_plot = ggplot(data, aes(x = is_hyper, y = dist)) + geom_violin(draw_quantiles = c(0.25, 0.5, 0.75))
+
+hyps = subset(data,data$is_hyper=="hypers")
+nonhyps = subset(data,data$is_hyper=="nonhypers")
+mean(hyps$dist)
+mean(nonhyps$dist)
+wilcox.test(hyps$dist,nonhyps$dist)
+

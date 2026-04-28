@@ -1,0 +1,38 @@
+PhylogeneticAnalysisOfGenera.Dataset.R - makes lists of hyperaccumulator genera for every element and their union ("any_metal") as well as phylogenetic tree that contains these genera. These datasets are for seedplants, and they were manually restricted to Angiosperms for further analyses
+
+clean_tree.py - deletes extra information from internal nodes that is inconvinient for reading by ete3 Python package
+
+MAKE_DB_FILE_FOR_PAPER.R - makes Table S1 from raw files of the database (the same that are used in PhylogeneticAnalysisOfGenera.Dataset.R)
+
+FinalTree.GENERA.newick - final genera-level tree of Angiosperms
+
+
+
+FamilyAnalysis.R - make an analysis on family level: performs Chi-squared test for the evenness of representation of hyperaccumulating species within different families, analyses standardised residuals from the test and constructs family-level pylogenetic tree
+
+TreeOfFamilies_Angiosperms.newick - final family-level tree of Angiosperms(for MPD/MNTD-based analyses)
+
+
+
+
+dists_from_hypers.py - calculates phylogenetic distance to the closest hyperaccumulator for every leaf of the genera-level tree
+
+Analyzing dists to closest hyper.R - performs Mann-Whitney test for distances from the nearest hyperaccumulator genera between hyperacumulator genera and other genera
+
+
+
+NTI.parallel.py, NRI.parallel.py - calculate MNTD/MPD - based statistics and NTI/NRI
+
+
+
+DatasetsForTB.py - makes input files for TreeBreaker from those made in PhylogeneticAnalysisOfGenera.Dataset.R 
+
+TB_results.R - makes table based on TreeBreaker results
+
+
+
+make_file_for_perl_angiosp.py - makes input file for metal_correlation_hypers.pl from the file made in PhylogeneticAnalysisOfGenera.Dataset.R
+
+metal_correlation_hypers.pl - performs correlaion analysis of hyperaccumulator genera for pairs of elements 
+
+MetalCorrelationAnalysis.R - makes table about correlaion of hyperaccumulator genera for pairs of elements 
